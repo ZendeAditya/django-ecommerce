@@ -1,0 +1,23 @@
+{% extends '../base.html' %}
+{% load crispy_forms_tags %}
+
+{% block signup %}
+<div class="container">
+    <div class="row">
+        
+        {% if form.errors %}
+            <p>{{errors|escape}}</p>
+        {% endif %}
+            
+        <div class="card my-5 mx-5">
+            <div class="col-md-8 col-lg-6 col-sm-12 mx-auto">
+                <form action="#" method="post" >
+                    {{form|crispy}}
+                    
+                    <input type="submit" value="signup" class="btn btn-info">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock signup %}

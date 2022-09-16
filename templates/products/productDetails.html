@@ -1,0 +1,37 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block prodcutdetails %}
+<div class="contaiener">
+    <div class="row">
+        <div class="col-md-4 col-lg-4 col-sm-12 offset-8">
+            <a href="{% url 'home:home' %}" class="btn btn-primary my-3" >Go To Homepage</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row my-5">
+        {% for p in product %}
+        <div class="col-md-6 col-lg-6 col-sm-12">
+            <img src="{{p.product_img.url|safe}}" alt="prodcut img">
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 ">
+            <h5 class="text-dark">
+                {{p.product_name}}
+            </h5>
+            <h4 style="text-decoration: line-through;" >
+                ₹ {{p.product_price}}
+            </h4>
+            <h2>₹ {{p.product_discount_price}}</h2>
+            <a href="#" class="btn btn-info">Buy Now</a>
+            <a href="#!" class="btn btn-primary">Add To Cart</a>
+        </div>
+        <hr class="hr hr-blurry text-center">
+        <div class="card-text">
+            <h2>prodcut description</h2>
+            {{p.product_desc}}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock prodcutdetails %}
